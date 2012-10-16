@@ -5,7 +5,6 @@ gem 'rails', '3.2.6'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 
 
 # Gems used only for assets and not required
@@ -20,7 +19,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -37,5 +35,35 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
+group :development, :test do
+  gem 'sqlite3', '1.3.5'
+  gem 'rspec-rails', '2.10.0'
+  gem 'guard-rspec', '0.5.5'
+  gem 'pry', '~> 0.9.9.6'
+  gem 'libnotify', '0.5.9'
+end
+
+group :test do
+  gem 'capybara', '1.1.2'
+  gem 'rb-inotify', '0.8.8'
+  gem 'guard-spork', '0.3.2'
+  gem 'spork', '0.9.0'
+  gem 'factory_girl_rails', '1.4.0'
+  gem 'shoulda'
+  gem 'faker', '1.0.1'
+end
+
+gem 'jquery-rails', '~> 2.0.0'
+gem 'bootstrap-sass', '~> 2.0.3'
+# gem 'simple_form'
+# gem 'cocoon'
+# gem 'client_side_validations'
+# gem 'client_side_validations-simple_form'
+gem "ember-rails"
+
+
 gem 'active_model_serializers', :git => "git://github.com/josevalim/active_model_serializers.git"
+
+
+
 
