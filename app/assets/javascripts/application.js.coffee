@@ -17,5 +17,7 @@
 #= require ember-data
 #= require_self
 #= require sp
-window.Sp = Ember.Application.create()
+window.Sp = Ember.Application.create
+  ready: ->
+    console.log "Created Sp namespace"
 #= require_tree .
