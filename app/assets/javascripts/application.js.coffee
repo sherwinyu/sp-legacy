@@ -20,4 +20,30 @@
 window.Sp = Ember.Application.create
   ready: ->
     console.log "Created Sp namespace"
+
+  CarsView: Em.View.extend
+    classNames: 'derp-view'
+    templateName: 'cars'
+    goToShoes: Ember.Route.transitionTo('root.shoes')
+
+  CarsController: Em.ArrayController.extend()
+
+  ShoesView: Em.View.extend
+    classNames: 'derp-view'
+    templateName: 'shoes'
+  ShoesController: Em.ArrayController.extend()
+
+  SalutationView: Em.View.extend
+    templateName: 'salutation'
+  SalutationController: Em.ObjectController.extend()
+
+  TraversalView: Em.View.extend
+    templateName: 'traversal'
+  TraversalController: Em.ObjectController.extend()
+
+
+
+
+
+
 #= require_tree .

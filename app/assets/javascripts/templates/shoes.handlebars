@@ -1,0 +1,12 @@
+<h1>Shoes</h1>
+
+<p>lets get some shoes </p>
+
+<p>
+  {{#each shoe in controller}}
+  {{#with shoe}}
+  <li style="color: #000"> {{id}} | {{name}} | {{price}} : {{description}} </li>
+  {{/with}}
+  {{/each}}
+</p>
+

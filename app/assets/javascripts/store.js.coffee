@@ -10,4 +10,3 @@ Sp.store = DS.Store.create(
   adapter: DS.RESTAdapter.create(bulkCommit: false)
 )
 
-console.log Sp.store, "derpderp"

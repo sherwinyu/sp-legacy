@@ -1,8 +1,14 @@
 <h1>Application</h1>
-<h1>Hi Ember 1</h1>
+<h1>  Ember 1</h1>
+
+{{outlet greeting}}
 
 <p>Your content here.</p>
 
 <p {{bindAttr class="isSlogan"}} > Ember is: {{slogan}} </p>
+<p><a {{action goToCars href=true}}> Go To Cars </a>
 
-{{outlet}}
+<hr>
+
+{{outlet body}}
+{{outlet footer}}
