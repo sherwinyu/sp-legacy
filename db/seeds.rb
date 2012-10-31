@@ -8,4 +8,6 @@
 
 Post.create(title: 'Hello', body: 'world')
 Post.create(title: 'foo', body: 'bar')
+Pom.create(description: 'working on emberjs stuff', start_time: DateTime.now, duration1: Time.now, duration2: 25.minutes, reflection: nil)
+
 

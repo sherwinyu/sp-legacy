@@ -2,9 +2,31 @@ Sp.Router = Ember.Router.extend
   location: 'hash',
   goToCars: Ember.Route.transitionTo('root.cars')
   goToHome: Ember.Route.transitionTo('root.shoes')
-  goToShoes: Ember.Route.transitionTo('root.shoes')
+  goToShoes: Ember.Route.transitionTo('root.shoes.index')
     
   root: Ember.Route.extend
+    spindex: Ember.Route.extend
+      route: '/sp'
+      enter: (router) ->
+        console.log "spindex entered"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     index: Ember.Route.extend
       route: '/'
 
@@ -25,13 +47,37 @@ Sp.Router = Ember.Router.extend
       # Layout your routes here...
     
     shoes: Ember.Route.extend
+      showShoe: Em.Route.transitionTo('root.shoes.show')
+
       route: '/shoes'
+
+
       enter: (router) ->
         console.log "Shoes substate entered"
-      connectOutlets: (router, context) ->
-        router.get('applicationController').connectOutlet('body', 'shoes', Sp.Shoe.all())
-        router.get('applicationController').connectOutlet('greeting', 'salutation', greeting: 'shoes say hi')
-        router.get('applicationController').connectOutlet('footer', 'traversal')
+
+      index: Ember.Route.extend
+        route: '/',
+        connectOutlets: (router, context) ->
+          router.get('applicationController').connectOutlet('body', 'shoes', Sp.Shoe.all())
+          router.get('applicationController').connectOutlet('greeting', 'salutation', greeting: 'shoes say hi')
+          router.get('applicationController').connectOutlet('footer', 'traversal')
+
+      show: Em.Route.extend
+        route: '/:id'
+        enter: -> 
+          console.log "shoe detail substate entered"
+        deserialize: (router, context) ->
+          return Sp.Shoe.find context.id
+        serialize: (router, context) ->
+          return {id: context.id}
+        connectOutlets: (router, aShoe) ->
+          router.get('applicationController').connectOutlet 'greeting', 'salutation', greeting: 'shoes.show'
+          router.get('applicationController').connectOutlet('body', 'shoe', aShoe)
+          router.get('applicationController').connectOutlet('footer', 'traversal')
+
+
+
+
 
     cars: Ember.Route.extend
       route: '/cars'

@@ -1,4 +1,6 @@
 Sp::Application.routes.draw do
+  resources :poms
+
   resources :posts
   root to: "posts#index"
 

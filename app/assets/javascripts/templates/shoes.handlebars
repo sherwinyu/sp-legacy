@@ -5,7 +5,8 @@
 <p>
   {{#each shoe in controller}}
   {{#with shoe}}
-  <li style="color: #000"> {{id}} | {{name}} | {{price}} : {{description}} </li>
+  <li style="color: #000"><a {{action showShoe this href=true}}> {{name}} </a> </li>
+  <!-- {{id}} | {{name}} | {{price}} : {{description}}  -->
   {{/with}}
   {{/each}}
 </p>

@@ -1,0 +1,2 @@
+class PomsController < ApplicationController
+end
