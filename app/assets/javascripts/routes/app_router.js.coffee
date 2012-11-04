@@ -9,6 +9,22 @@ Sp.Router = Ember.Router.extend
       route: '/sp'
       enter: (router) ->
         console.log "spindex entered"
+      connectOutlets: (router, context) ->
+        router.get('applicationController').connectOutlet('body', 'pom') #, Sp.store.find(Sp.Pom, 1))
+
+    spshow: Em.Route.extend
+      route: '/:id'
+
+      enter: -> 
+        console.log "spshow substate entered"
+
+      deserialize: (router, context) ->
+          return Sp.Pom.find context.id
+
+      serialize: (router, context) ->
+        return {id: context.id}
+        
+
 
 
 
