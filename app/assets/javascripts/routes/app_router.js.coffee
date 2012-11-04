@@ -10,7 +10,16 @@ Sp.Router = Ember.Router.extend
       enter: (router) ->
         console.log "spindex entered"
       connectOutlets: (router, context) ->
-        router.get('applicationController').connectOutlet('body', 'pom') #, Sp.store.find(Sp.Pom, 1))
+        pomController = router.get('pomController')
+        # console.log 'pomController', pomController
+        # console.log 'pomController', pomController.content
+        # console.log 'pomController', pomController.content.get('description')
+        # console.log 'pomController', pomController.content.get('id')
+        # console.log 'pomController', pomController.content.get('startTime')
+        # console.log 'pomController', pomController.content.get('duration2')
+
+        # router.get('applicationController').connectOutlet('body', 'poms', Sp.store.findAll(Sp.Pom))
+        router.get('applicationController').connectOutlet('footer', 'pom', pomController.get('content'))
 
     spshow: Em.Route.extend
       route: '/:id'

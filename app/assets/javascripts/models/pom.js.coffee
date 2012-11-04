@@ -17,8 +17,10 @@ Sp.Pom = DS.Model.extend
   reflection: DS.attr('string')
 
   endTime: (->
+    unless @get('startTime')
+      return new Date()
     new Date(@get('startTime').getTime() + @get('duration2') * 1000)
-  ).property('startTime', 'duration2')
+  ).property('startTime', 'duration2').cacheable()
   
   isActive: -> 
     current = new Date
@@ -36,23 +38,6 @@ Sp.Pom = DS.Model.extend
   timeRemaining: (->
     d = new Date(@timeRemainingMs())
     "#{d.getUTCHours()}:#{d.getUTCMinutes()}:#{d.getUTCSeconds()}.#{d.getUTCMilliseconds()}"
-  )
+  ).property('startTime', 'duration2').cacheable()
 
 
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-console.log 'Pom loaded', 5/0, null.derp()

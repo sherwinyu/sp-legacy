@@ -1,5 +1,10 @@
+{{# if isLoaded}}
 <h1> Pom # {{id}} </h1>
 <p> <strong> description: {{ description }} </p>
 <p> <strong> start time: {{ startTime }} </p>
-<p> <strong> duration: {{ duration }} </p>
+<p> <strong> duration: {{ duration2 }} </p>
 <p> <strong> end time: {{ endTime }} </p>
+<p> <strong> time remaining: {{ timeRemaining }} </p>
+  {{ else }}
+   Loading ..
+   {{/if}}
