@@ -2,6 +2,7 @@
 
 <p>Your content here.</p>
 {{#each pom in content}}
+{{# if isLoaded}}
   {{pom.description}} 
   <br>
 {{/each}}

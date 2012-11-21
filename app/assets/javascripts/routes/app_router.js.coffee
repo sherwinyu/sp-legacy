@@ -9,6 +9,7 @@ Sp.Router = Ember.Router.extend
       route: '/sp'
       enter: (router) ->
         console.log "spindex entered"
+
       connectOutlets: (router, context) ->
         pomController = router.get('pomController')
         # console.log 'pomController', pomController
@@ -19,6 +20,7 @@ Sp.Router = Ember.Router.extend
         # console.log 'pomController', pomController.content.get('duration2')
 
         # router.get('applicationController').connectOutlet('body', 'poms', Sp.store.findAll(Sp.Pom))
+        router.get('applicationController').connectOutlet('body', 'pom', pomController.get('content'))
         router.get('applicationController').connectOutlet('footer', 'pom', pomController.get('content'))
 
     spshow: Em.Route.extend
@@ -32,6 +34,15 @@ Sp.Router = Ember.Router.extend
 
       serialize: (router, context) ->
         return {id: context.id}
+
+    spnew: Em.Route.extend
+      route :'/new'
+
+      connectOutlets: (router, context) ->
+        pomController = router.get('pomController')
+        router.get('applicationController').connectOutlet('greeting', 'salutation', greeting: 'My ember app')
+
+
         
 
 
